@@ -10,7 +10,6 @@ public class Canal implements Comparable<Canal> {
 	private long id;
 	private int contador = 0;
 	
-
 	public Canal(String nome, TipoDeCanal tipoDoCanal, String canalOuLink) {
 		this.nome = nome;
 		this.tipoDoCanal = tipoDoCanal;

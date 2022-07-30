@@ -14,6 +14,11 @@ public class CentralDeInformacoes {
 	private List<Usuario> todosOsUsuarios = new ArrayList<Usuario>();
 	private List<Programa> todasAsAgendas = new ArrayList<>();
 
+	/**
+	 * Metodo utilizado para salvar um programa
+	 * @param programa
+	 * @return
+	 */
 	public boolean adicionarProgramaDeTV(Programa programa) {
 		Programa programas = this.recuperarProgramaDeTVporId(programa.getId());
 
@@ -23,6 +28,12 @@ public class CentralDeInformacoes {
 		this.todosOsProgramas.add(programa);
 		return true;
 	}
+	
+	/**
+	 * Metodo utilizado para recuperar um programa com busca no ID
+	 * @param id
+	 * @return
+	 */
 
 	public Programa recuperarProgramaDeTVporId(long id) {
 		for (int i = 0; i < todosOsProgramas.size(); i++) {
@@ -33,6 +44,11 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
+	/**
+	 * Metodo utilizado para excluir Programa
+	 * @param programa
+	 * @return
+	 */
 	public boolean excluirPrograma(Programa programa) {
 		if (todosOsProgramas.contains(programa)) {
 			todosOsProgramas.remove(programa);
@@ -41,6 +57,11 @@ public class CentralDeInformacoes {
 		return false;
 	}
 
+	/**
+	 * Metodo utilizado para salvar um canal
+	 * @param canal
+	 * @throws Exception
+	 */
 	public void salvarCanal(Canal canal) throws Exception {
 		Canal canalNome = this.recuperarCanal(canal.getNome());
 		if (canalNome != null) {
@@ -49,6 +70,11 @@ public class CentralDeInformacoes {
 		todosOsCanais.add(canal);
 	}
 
+	/**
+	 * Metodo utiliazdo para recuperar um canal
+	 * @param nome
+	 * @return
+	 */
 	public Canal recuperarCanal(String nome) {
 		for (int i = 0; i < todosOsCanais.size(); i++) {
 			if (todosOsCanais.get(i).getNome().equals(nome)) {
@@ -58,6 +84,11 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
+	/**
+	 * Metodo para excluir um canal com busca no ID
+	 * @param canal
+	 * @return
+	 */
 	public boolean excluirCanal(Canal canal) {
 		if (todosOsCanais.contains(canal)) {
 			todosOsCanais.remove(canal);
@@ -66,6 +97,11 @@ public class CentralDeInformacoes {
 		return false;
 	}
 
+	/**
+	 * recuperar Canal por ID
+	 * @param id
+	 * @return
+	 */
 	public Canal recuperarCanalId(long id) {
 		for (int i = 0; i < todosOsCanais.size(); i++) {
 			if (todosOsCanais.get(i).getId() == id) {
@@ -75,6 +111,11 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
+	/**
+	 * Metodo utilizado para salvar Usuario
+	 * @param usuario
+	 * @return
+	 */
 	public boolean salvarUsuario(Usuario usuario) {
 		for (int i = 0; i < todosOsUsuarios.size(); i++) {
 			if (todosOsUsuarios.get(i).getNome().equals(usuario.getNome())) {
@@ -84,6 +125,12 @@ public class CentralDeInformacoes {
 		todosOsUsuarios.add(usuario);
 		return true;
 	}
+	
+	/**
+	 * Metodo utilizado para recuperar Usuario pelo o nome
+	 * @param nome
+	 * @return
+	 */
 
 	public Usuario recuperarUsuario(String nome) {
 		for (int i = 0; i < todosOsUsuarios.size(); i++) {
@@ -93,6 +140,12 @@ public class CentralDeInformacoes {
 		}
 		return null;
 	}
+	
+	/**
+	 * Excluir Usuario 
+	 * @param usuario
+	 * @return
+	 */
 
 	public boolean excluirUsuario(Usuario usuario) {
 		if (todosOsUsuarios.contains(usuario)) {
@@ -102,6 +155,12 @@ public class CentralDeInformacoes {
 		return false;
 	}
 
+	/**
+	 * verificação de login.
+	 * @param email
+	 * @param senha
+	 * @return
+	 */
 	public boolean isLogin(String email, String senha) {
 		for (int i = 0; i < todosOsUsuarios.size(); i++) {
 			if (todosOsUsuarios.get(i).getEmail().equals(email) && todosOsUsuarios.get(i).getSenha().equals(senha)) {
@@ -110,6 +169,12 @@ public class CentralDeInformacoes {
 		}
 		return false;
 	}
+	
+	/**
+	 * Metodo utilizado para adicionar Agenda.
+	 * @param AdicionarprogramaDeTV
+	 * @return
+	 */
 
 	public boolean AdicionarAgenda(Programa programaDeTV) {
 		for (int i = 0; i < todasAsAgendas.size(); i++) {
@@ -120,6 +185,11 @@ public class CentralDeInformacoes {
 		todasAsAgendas.add(programaDeTV);
 		return true;
 	}
+	/**
+	 * Excluir Agenda
+	 * @param excluirAgenDa
+	 * @return
+	 */
 
 	public boolean excluirAgenda(Programa programaDeTV) {
 		if (todasAsAgendas.contains(programaDeTV)) {
@@ -128,7 +198,11 @@ public class CentralDeInformacoes {
 		}
 		return false;
 	}
-
+	/**
+	 * Recuperar Agenda por ID
+	 * @param id
+	 * @return
+	 */
 	public Programa recuperarAgenda(long id) {
 		for (int i = 0; i < todasAsAgendas.size(); i++) {
 			if (todasAsAgendas.get(i).getId() == id) {
@@ -138,6 +212,9 @@ public class CentralDeInformacoes {
 		return null;
 	}
 
+	/**
+	 * Método utilizado para excluir Agenda
+	 */
 	public void excluirAgendaSemUsuario() {
 		for (int i = 0; i < todasAsAgendas.size(); i++) {
 			if (todasAsAgendas.get(i) != null) {

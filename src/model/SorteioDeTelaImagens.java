@@ -21,10 +21,4 @@ public class SorteioDeTelaImagens {
 		return sorteio;
 
 	}
-	
-	
-	
-	// Cadastros de programas, listar todos os programas
-	
-	
 }
